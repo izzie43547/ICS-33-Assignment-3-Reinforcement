@@ -1,0 +1,18 @@
+Query Analysis Submission
+
+Problem 1a
+SQL Query:
+SELECT name 
+FROM employees 
+WHERE department = 'engineering' 
+    AND salary > 85000 
+ORDER BY salary DESC;
+
+Problem 1b
+SQL Query:
+SELECT ROUND(AVG(salary), 2) as avg_salary
+FROM employees
+WHERE title LIKE '%Senior%';
+
+Problem 5: Lazy Evaluation Explanation
+The `filtered_names()` function is implemented using a generator expression, which makes it lazy. This means it processes data on-demand rather than all at once. When called, it returns a generator object that yields one matching employee name at a time without creating intermediate lists in memory. This approach is memory efficient, especially for large datasets, as it only processes one record at a time. It also enables better performance when the full result set isn't needed, as iteration can stop early once the desired number of results is found.
