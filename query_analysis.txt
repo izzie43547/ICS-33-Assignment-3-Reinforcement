@@ -1,22 +1,18 @@
-ICS 33 - Assignment 3 - Query Analysis
+Query Analysis Submission
 
-SQL Queries
-===========
-
-Query 1a:
----------
+Problem 1a
+SQL Query:
 SELECT name 
 FROM employees 
 WHERE department = 'engineering' 
     AND salary > 85000 
 ORDER BY salary DESC;
 
-Query 1b:
----------
+Problem 1b
+SQL Query:
 SELECT ROUND(AVG(salary), 2) as avg_salary
 FROM employees
 WHERE title LIKE '%Senior%';
 
-Lazy Evaluation Explanation
-==========================
-The `filtered_names()` function is implemented as a generator function using a generator expression, which makes it lazy. This means it processes data on-demand rather than all at once. When called, it returns a generator object that will yield one matching employee name at a time as it's being iterated over, without creating intermediate lists in memory. This lazy evaluation provides significant memory efficiency, especially for large datasets, as it only loads and processes one record at a time. It also enables better performance when the full result set isn't needed, as iteration can stop early once the desired number of results is found. Additionally, this approach allows for processing of infinite or very large data streams that wouldn't fit in memory all at once.
+Problem 5: Lazy Evaluation Explanation
+The `filtered_names()` function is implemented using a generator expression, which makes it lazy. This means it processes data on-demand rather than all at once, yielding one matching employee name at a time without creating intermediate lists in memory. This approach is memory efficient, especially for large datasets, as it only processes one record at a time. It also allows for early termination of processing if the full result set isn't needed, and can handle infinite or very large data streams that wouldn't fit in memory all at once.
